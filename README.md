@@ -1,10 +1,12 @@
 # i3-video-wallpaper
 Play dynamic wallpapers in i3wm (using XWinWrap and MPV).
 
-Support pausing the video when a window other than the desktop is focused
+- Support pausing the video when a window other than the desktop is focused
+- Multi-monitor support
+- Set FPS for videos
 
 ## Dependencies
-- xwinwrap-git (AUR)
+- xwinwrap
 - xdotool
 - mpv
 
@@ -15,14 +17,17 @@ Support pausing the video when a window other than the desktop is focused
 
 ## Basic Usage
 ```bash
-./setup.sh [-p] [-a false] [-n false] [-w false] [-b false] [-g 16x16] [-f center] [-d $HOME/Pictures/i3-video-wallpaper] [-t 00:00:01] [-h]
+./setup.sh [-a false] [-r] [-m] [-p] [-n false] [-w false] [-b false] [-g 16x16] [-f center] [-d $HOME/Pictures/i3-video-wallpaper] [-t 00:00:01] [-h]
 ```
 ## Parameters
 ```
 $ ./setup.sh -h
 Options:
-        -p: Path to video.
         -a: Always run video wallpaper. (Default: false)
+        -r: Path to video 1.
+        -m: Path to video 2.
+        -p: Path to video 3.
+        -s: FPS (Default 40).
         -n: Generate a thumbnail by using ffmpeg. It can fix the background of system tray if you use the built-in system tray of Polybar. (Default: false)
         -w: Set the generated thumbnail as wallpaper by using feh. It can fix the background of system tray if you use the built-in system tray of Polybar. (Default: false)
         -b: Blur the thumbnail. It may be useful if your compositor does not blur the background of the built-in system tray of Polybar. (Default: false)
@@ -32,6 +37,10 @@ Options:
         -t: The time to generate the thumbnail. (Default: 00:00:01) 
         -h: Display this text.
 ```
+## Edit number of monitors
+- Add/remove getopts args.
+- Edit line 135 depending on number of monitors.
+
 
 ## License
 [MIT](https://mit-license.org)
